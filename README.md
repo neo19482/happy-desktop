@@ -1,3 +1,85 @@
+<!-- NIUX REMOTE PROJECT SHOWCASE -->
+
+# Happy Desktop — Remote Project Management
+
+**Community contribution by [NiuX](https://github.com/neo19482)**
+
+> Independent community fork of
+> [Happy Desktop](https://github.com/slopus/happy-desktop).
+> Not an official Happy release.
+
+[View source code](https://github.com/neo19482/happy-desktop/tree/integration/remote-project-management) |
+[Official Pull Request #82](https://github.com/slopus/happy-desktop/pull/82)
+
+## Resumen ejecutivo
+
+Esta contribución amplía Happy Desktop para administrar proyectos
+alojados en una instancia remota de Happy Agent directamente desde
+la interfaz de macOS.
+
+### Funcionalidades incorporadas
+
+- Crear proyectos y directorios remotos.
+- Importar carpetas existentes.
+- Acceder a la clonación de repositorios Git desde el menú Proyectos.
+- Archivar proyectos y eliminar sus directorios físicos, previa confirmación.
+- Admitir nombres con Unicode, mayúsculas, espacios y caracteres habituales.
+- Conservar el acceso a los proyectos y conversaciones existentes.
+
+### Arquitectura
+
+**Happy Desktop → Happy Agent API → Sistema de archivos remoto**
+
+La implementación utiliza tres componentes principales:
+
+| Componente | Responsabilidad |
+|---|---|
+| `AppHappyAgentView.tsx` | Interfaz, menús y confirmaciones |
+| `happyAgentClient.ts` | API, operaciones remotas y comprobaciones |
+| `happyAgentWorkspaceStore.ts` | Estado y ciclo de vida de proyectos |
+
+### Validaciones realizadas
+
+- TypeScript: correcto en la versión original y en la rama oficial integrada.
+- Creación de proyectos y directorios remotos: verificada.
+- Archivado y eliminación física de un proyecto descartable: verificados.
+- Sincronización de conversaciones macOS ↔ iPhone: verificada.
+- Integración Git con la rama oficial: sin conflictos.
+
+**Seguridad:** la eliminación utiliza comprobaciones restrictivas,
+pero todavía requiere auditoría de seguridad y pruebas automatizadas.
+Se recomienda una API dedicada de Happy Agent para operaciones
+destructivas antes de su incorporación oficial.
+
+## English summary
+
+This community contribution extends Happy Desktop with remote
+project lifecycle management through an existing Happy Agent.
+
+Features include remote project creation, directory import,
+access to Git cloning, project archival and confirmed physical
+directory deletion, with support for flexible project names.
+
+Functional tests were completed on macOS ARM64 with Happy Agent
+0.4.110, including bidirectional conversation synchronization
+with iOS.
+
+The implementation has been integrated with the upstream main
+branch and passes TypeScript validation.
+
+**Status:** Proof of concept submitted as
+[upstream PR #82](https://github.com/slopus/happy-desktop/pull/82).
+Destructive operations require additional security review.
+
+---
+
+## Original Happy Desktop documentation
+
+The following documentation belongs to the original Happy Desktop
+project and is retained for attribution and reference.
+
+---
+
 <div align="center">
 
 <h1>Any Model. Your Subscription.<br><em>Happy Harness.</em></h1>
